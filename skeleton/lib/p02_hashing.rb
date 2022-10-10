@@ -15,6 +15,12 @@ end
 
 class String
   def hash
+    return 1 if self.length == 0
+    count = 0
+    self.split("").each.with_index do |char,i|
+      count += char.hash * i
+    end
+    count
   end
 end
 
