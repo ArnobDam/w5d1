@@ -36,12 +36,21 @@ class IntSet
   end
 
   def insert(num)
+      @store[num % 20] << num
   end
 
   def remove(num)
+    if @store[num % 20].include?(num)
+      @store[num % 20].delete(num)
+    end
   end
 
   def include?(num)
+    if @store.flatten.include?(num)
+      return true
+    else
+      false
+    end
   end
 
   private
