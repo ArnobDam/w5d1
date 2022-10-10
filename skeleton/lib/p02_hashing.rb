@@ -4,6 +4,12 @@ end
 
 class Array
   def hash
+    return 1 if self.length == 0
+    count = 0
+    self.each.with_index do |ele,i|
+      count += ele.hash * i
+    end
+    count
   end
 end
 
